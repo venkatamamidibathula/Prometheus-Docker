@@ -1,4 +1,4 @@
 FROM nginx
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY cmmonitoring.moslof.pem /etc/nginx/ssl/cmmonitoring.moslof.pem
-COPY cmmonitoring.moslof.key /etc/nginx/ssl/cmmonitoring.moslof.key
+COPY cmmonitoring.moslof.com.pem /etc/nginx/ssl/cmmonitoring.moslof.com.pem
+COPY cmmonitoring.moslof.com.key /etc/nginx/ssl/cmmonitoring.moslof.com.key

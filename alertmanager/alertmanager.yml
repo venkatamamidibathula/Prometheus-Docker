@@ -1,0 +1,88 @@
+global:
+    smtp_smarthost: 'smtpinternal.moslof.com:25'
+    smtp_from: 'alertmanager@moslof.com'
+
+templates:
+- '/etc/alertmanager/template/*.tmpl'
+
+route:
+  group_by: ['alertname', 'job_name','severity','env']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 2h
+
+  receiver: 'default-receiver'
+
+  routes:
+  - match:
+      alertname: 'EndpointDown'
+    receiver: 'default-receiver'
+    continue: true
+  - match:
+      severity: critical
+      env: PROD
+    receiver: 'default-receiver'
+    continue: true
+  
+  - match_re:
+      job: ^bata_.*(Prod|ProdOR)$
+    receiver: 'bata-team-prod'
+    continue: true
+
+  - match_re:
+      job: ^bata_.*(Qa|Stage|Dev)$
+    receiver: 'bata-team-nonprod'
+    continue: true
+
+  - match_re:
+      job: ^userportal_.*(Prod)$
+    receiver: 'userportal-team-prod'
+    continue: true
+
+  - match_re:
+      job: ^userportal_.*(Qa|Stage|Dev)$
+    receiver: 'userportal-team-nonprod'
+    continue: true
+
+receivers:
+
+- name: 'default-receiver'
+  email_configs:
+  - to: 'dl-midev@moslof.com'
+    require_tls: false
+    send_resolved: true
+  webhook_configs:
+  - url: 'https://prommsteams.moslof.com/devops'
+    send_resolved: true
+
+- name: 'bata-team-nonprod'
+  email_configs:
+  - to: 'dl-midev@moslof.com'
+    require_tls: false
+    send_resolved: true
+
+- name: 'bata-team-prod'
+  email_configs:
+  - to: 'dl-midev@moslof.com'
+    require_tls: false
+    send_resolved: true
+  webhook_configs:
+  - url: 'https://prommsteams.moslof.com/bata'
+    send_resolved: true
+
+- name: 'userportal-team-nonprod'
+  email_configs:
+  - to: 'dl-midev@moslof.com'
+    require_tls: false
+    send_resolved: true
+
+- name: 'userportal-team-prod'
+  email_configs:
+  - to: 'dl-midev@moslof.com'
+    require_tls: false
+    send_resolved: true
+  webhook_configs:
+  - url: 'https://prommsteams.moslof.com/userportal'
+    send_resolved: true
+
+

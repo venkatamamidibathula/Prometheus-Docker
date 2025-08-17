@@ -1,0 +1,25 @@
+[[servers]]
+host = "ldap.moslof.com"
+port = 636
+use_ssl = true
+bind_dn = ""
+bind_password = ""
+search_filter = "(sAMAccountName=%s)"
+search_base_dns = ["OU=Anthem,OU=User Accounts,DC=moslof,DC=com"]
+
+[servers.attributes]
+name = "displayname"
+surname = "sn"
+username = "sAMAccountName"
+member_of = "memberOf"
+email = "mail"
+
+[[servers.group_mappings]]
+group_dn = ""
+org_role = "Editor"
+
+
+[[servers.group_mappings]]
+group_dn = ""
+org_role = "Viewer"
+

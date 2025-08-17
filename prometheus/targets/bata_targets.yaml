@@ -1,0 +1,462 @@
+- targets:
+    - serverpkibatap09.moslof.com:9007
+  labels:
+    env: Dev
+    type: kuh-api
+    protocol: http_bata-kuh_dev
+    path: /swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - serverpkiihsp09.moslof.com:9007
+  labels:
+    env: Qa
+    type: kuh-api
+    protocol: http_bata-kuh_qa
+    path: /swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - batakuh-stg.moslof.com
+    - serverrkibatau76.moslof.com:9007
+    - serverrkibatare1.moslof.com:9007  
+  labels:
+    env: Stage
+    type: kuh-api
+    protocol: http_bata-kuh_stage
+    path: /swagger-ui/index.html
+    scheme: https
+     
+- targets:
+    - batakuh.moslof.com
+    - serverhgtbatau76.moslof.com:9007
+    - serverhgtbatare1.moslof.com:9007
+  labels:
+    env: Prod
+    type: kuh-api
+    protocol: http_bata-kuh_prod
+    path: /swagger-ui/index.html
+    scheme: https 
+
+- targets:
+    - serverpkibatap09.moslof.com:9006
+  labels:
+    env: Dev
+    type: res-api
+    protocol: http_bata-kuh_dev
+    path: /bata/swagger-ui/index.html 
+    scheme: https
+
+- targets:
+    - serverpkiihsp09.moslof.com:10006
+  labels:
+    env: Qa
+    type: res-api
+    protocol: http_bata-kuh_qa
+    path: /bata/swagger-ui/index.html 
+    scheme: https
+
+- targets:
+    - batares-stg.moslof.com
+    - serverrkibatau76.moslof.com:9006
+    - serverrkibatare1.moslof.com:9006
+  labels:
+    env: Stage
+    type: res-api
+    protocol: http_bata-kuh_stage
+    path: /bata/swagger-ui/index.html 
+    scheme: https
+
+- targets:
+    - batares.moslof.com
+    - serverhgtbatau76.moslof.com:9006
+    - serverhgtbatare1.moslof.com:9006
+  labels:
+    env: Prod
+    type: res-api
+    protocol: http_bata-kuh_prod
+    path: /bata/swagger-ui/index.html 
+    scheme: https
+
+      
+- targets:
+    - serverpkibatap09.moslof.com:9008
+  labels:
+    env: Dev
+    type: htk-api
+    protocol: http_bata-kuh_dev
+    path: /swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - serverpkiihsp09.moslof.com:9008
+  labels:
+    env: Qa
+    type: htk-api
+    protocol: http_bata-kuh_qa
+    path: /swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - batahtk-stg.moslof.com
+    - serverrkibatau76.moslof.com:9008
+    - serverrkibatare1.moslof.com:9008
+  labels:
+    env: Stage
+    type: htk-api
+    protocol: http_bata-kuh_stage
+    path: /swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - batahtk.moslof.com
+    - serverhgtbatau76.moslof.com:9008
+    - serverhgtbatare1.moslof.com:9008
+  labels:
+    env: Prod
+    type: htk-api
+    protocol: http_bata-kuh_prod
+    path: /swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - serverpkibatap09.moslof.com:9005
+  labels:
+    env: Dev
+    type: javagal-api
+    protocol: http_bata-kuh_dev
+    path: /swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - serverpkiihsp09.moslof.com:9005
+  labels:
+    env: Qa
+    type: javagal-api
+    protocol: http_bata-javagal-kuh_qa
+    path: /swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - batajavagal-stg.moslof.com
+    - serverrkibatau76.moslof.com:9005
+    - serverrkibatare1.moslof.com:9005
+  labels:
+    env: Stage
+    type: javagal-api
+    protocol: http_bata-javagal-kuh_stage
+    path: /swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - batajavagal.moslof.com
+    - serverhgtbatau76.moslof.com:9005
+    - serverhgtbatare1.moslof.com:9005
+  labels:
+    env: Prod
+    type: javagal-api
+    protocol: http_bata-javagal-kuh_prod
+    path: /swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - serverpkibatap09.moslof.com:9009
+  labels:
+    env: Dev
+    type: loprss-api
+    protocol: http_bata-kuh_dev
+    path: /bata/swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - serverpkiihsp09.moslof.com:9009
+  labels:
+    env: Qa
+    type: loprss-api
+    protocol: http_bata-kuh_qa
+    path: /bata/swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - bataloprss-stg.moslof.com
+    - serverrkibatau76.moslof.com:9009
+    - serverrkibatare1.moslof.com:9009
+  labels:
+    env: Stage
+    type: loprss-api
+    protocol: http_bata-kuh_stage
+    path: /bata/swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - bataloprss.moslof.com
+    - serverhgtbatau76.moslof.com:9009
+    - serverhgtbatare1.moslof.com:9009
+  labels:
+    env: Prod
+    type: loprss-api
+    protocol: http_bata-kuh_prod
+    path: /bata/swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - serverpkibatap09.moslof.com:9011
+  labels:
+    env: Dev
+    type: lim-api
+    protocol: http_401
+    path: /lim/swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - serverpkiihsp09.moslof.com:9011
+  labels:
+    env: Qa
+    type: lim-api
+    protocol: http_401
+    path: /lim/swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - serverrkibatau76.moslof.com:9011
+    - serverrkibatare1.moslof.com:9011
+  labels:
+    env: Stage
+    type: lim-api
+    protocol: http_401
+    path: /lim/swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - serverhgtbatau76.moslof.com:9011
+    - serverhgtbatare1.moslof.com:9011
+  labels:
+    env: Prod
+    type: lim-api
+    protocol: http_401
+    path: /lim/swagger-ui/index.html
+    scheme: https
+
+- targets: 
+    - batakuh-stg.moslof.com
+    - batahtk-stg.moslof.com
+    - batajavagal-stg.moslof.com
+    - bataloprss-stg.moslof.com    
+  labels:
+    env: Stage
+    type: loadbalancer
+    protocol: http_2xx
+    path: /?f5poolstatus
+    scheme: https       
+
+#TCP targets
+- targets:
+    - serverpkibatap09.moslof.com:9007
+  labels:
+    env: Dev
+    type: kuh-api
+    protocol: tcp
+
+- targets:
+    - serverpkiihsp09.moslof.com:9007
+  labels:
+    env: Qa
+    type: kuh-api
+    protocol: tcp
+
+- targets:
+    - serverrkibatau76.moslof.com:9007
+    - serverrkibatare1.moslof.com:9007 
+  labels:
+    env: Stage
+    type: kuh-api
+    protocol: tcp
+
+- targets:
+    - serverhgtbatau76.moslof.com:9007
+    - serverhgtbatare1.moslof.com:9007 
+  labels:
+    env: Prod
+    type: kuh-api
+    protocol: tcp  
+
+- targets:
+    - serverpkibatap09.moslof.com:9006
+  labels:
+    env: Dev
+    type: res-api
+    protocol: tcp
+
+- targets:
+    - serverpkiihsp09.moslof.com:9006
+  labels:
+    env: Qa
+    type: res-api
+    protocol: tcp
+
+- targets:
+    - serverrkibatau76.moslof.com:9006
+    - serverrkibatare1.moslof.com:9006
+  labels:
+    env: Stage
+    type: res-api
+    protocol: tcp
+
+- targets:
+    - serverhgtbatau76.moslof.com:9006
+    - serverhgtbatare1.moslof.com:9006
+  labels:
+    env: Prod
+    type: res-api
+    protocol: tcp
+
+- targets:
+    - serverpkibatap09.moslof.com:9008
+  labels:
+    env: Dev
+    type: htk-api
+    protocol: tcp
+
+- targets:
+    - serverpkiihsp09.moslof.com:9008
+  labels:
+    env: Qa
+    type: htk-api
+    protocol: tcp
+
+- targets:
+    - serverrkibatau76.moslof.com:9008
+    - serverrkibatare1.moslof.com:9008
+  labels:
+    env: Stage
+    type: htk-api
+    protocol: tcp
+
+- targets:
+    - serverhgtbatau76.moslof.com:9008
+    - serverhgtbatare1.moslof.com:9008
+  labels:
+    env: Prod
+    type: htk-api
+    protocol: tcp
+
+- targets:
+    - serverpkibatap09.moslof.com:9005
+  labels:
+    env: Dev
+    type: javagal-api
+    protocol: tcp
+
+- targets:
+    - serverpkiihsp09.moslof.com:9005
+  labels:
+    env: Qa
+    type: javagal-api
+    protocol: tcp
+
+- targets:
+    - serverrkibatau76.moslof.com:9005
+    - serverrkibatare1.moslof.com:9005 
+  labels:
+    env: Stage
+    type: javagal-api
+    protocol: tcp
+
+- targets:
+    - serverhgtbatau76.moslof.com:9005
+    - serverhgtbatare1.moslof.com:9005 
+  labels:
+    env: Prod
+    type: javagal-api
+    protocol: tcp
+
+- targets:
+    - serverpkibatap09.moslof.com:9009
+  labels:
+    env: Dev
+    type: loprss-api
+    protocol: tcp
+
+- targets:
+    - serverpkiihsp09.moslof.com:9009
+  labels:
+    env: Qa
+    type: loprss-api
+    protocol: tcp
+
+- targets:
+    - serverrkibatau76.moslof.com:9009
+    - serverrkibatare1.moslof.com:9009
+  labels:
+    env: Stage
+    type: loprss-api
+    protocol: tcp
+
+- targets:
+    - serverhgtbatau76.moslof.com:9009
+    - serverhgtbatare1.moslof.com:9009
+  labels:
+    env: Prod
+    type: loprss-api
+    protocol: tcp
+
+- targets:
+    - serverpkibatap09.moslof.com:9011
+  labels:
+    env: Dev
+    type: lim-api
+    protocol: tcp
+
+- targets:
+    - serverpkiihsp09.moslof.com:9011
+  labels:
+    env: Qa
+    type: lim-api
+    protocol: tcp
+
+- targets:
+    - serverrkibatau76.moslof.com:9011
+    - serverrkibatare1.moslof.com:9011
+  labels:
+    env: Stage
+    type: lim-api
+    protocol: tcp
+
+- targets:
+    - serverhgtbatau76.moslof.com:9011
+    - serverhgtbatare1.moslof.com:9011
+  labels:
+    env: Prod
+    type: lim-api
+    protocol: tcp
+
+# ICMP Targets
+- targets:
+    - serverpkibatap09.moslof.com
+  labels:
+    env: Dev
+    type: icmp
+    protocol: icmp      
+
+- targets:
+    - serverpkiihsp09.moslof.com
+  labels:
+    env: Qa
+    type: icmp
+    protocol: icmp     
+
+- targets:
+    - serverrkibatau76.moslof.com
+    - serverrkibatare1.moslof.com  
+  labels:
+    env: Stage
+    type: icmp
+    protocol: icmp 
+
+- targets:
+    - serverhgtbatau76.moslof.com
+    - serverhgtbatare1.moslof.com  
+  labels:
+    env: Prod
+    type: icmp
+    protocol: icmp 

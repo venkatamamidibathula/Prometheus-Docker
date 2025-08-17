@@ -1,0 +1,94 @@
+global:
+  scrape_interval:     30s
+  evaluation_interval: 2m
+  # scrape_timeout is set to the global default (10s) for dummy commit.
+
+  external_labels:
+    monitor: 'prometheus-monitoring'
+
+rule_files:
+    - '/etc/prometheus/alert_rules.yml'
+
+# Monitoring the servers
+scrape_configs:
+# Monitoring the Servers, Services
+
+  - job_name: 'userportal_application'
+    metrics_path: /probe
+    file_sd_configs:
+      - files:
+          - '/etc/prometheus/targets/user_targets.yaml'
+    relabel_configs:
+      - source_labels: [protocol]
+        regex: "(icmp)"
+        target_label: __param_module
+        replacement: "${1}"
+      - source_labels: [protocol]
+        regex: "http_(.*)"
+        target_label: __param_module
+        replacement: "http_${1}"
+      - source_labels: [protocol]
+        regex: "tcp"
+        target_label: __param_module
+        replacement: "tcp_connect"
+      - source_labels: [scheme, __address__, path]
+        separator: ";"
+        regex: "(https?);([^;]+);(.*)"
+        target_label: __param_target
+        replacement: "${1}://${2}${3}"
+      - source_labels: [__address__, protocol]
+        regex: "([^;]+);(tcp|icmp)"
+        target_label: __param_target
+        replacement: "${1}"
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackboxexporter:9115
+      - source_labels: [type, env]
+        separator: ";"
+        regex: "(.*);(.*)"
+        target_label: job
+        replacement: "tfs_${1}_${2}"
+
+  - job_name: 'bata_application'
+    metrics_path: /probe
+    file_sd_configs:
+      - files:
+          - '/etc/prometheus/targets/bata_targets.yaml'
+    relabel_configs:
+      - source_labels: [protocol]
+        regex: "(icmp)"
+        target_label: __param_module
+        replacement: "${1}"
+      - source_labels: [protocol]
+        regex: "http_(.*)"
+        target_label: __param_module
+        replacement: "http_${1}"
+      - source_labels: [protocol]
+        regex: "tcp"
+        target_label: __param_module
+        replacement: "tcp_connect"
+      - source_labels: [scheme, __address__, path]
+        separator: ";"
+        regex: "(https?);([^;]+);(.*)"
+        target_label: __param_target
+        replacement: "${1}://${2}${3}"
+      - source_labels: [__address__, protocol]
+        regex: "([^;]+);(tcp|icmp)"
+        target_label: __param_target
+        replacement: "${1}"
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackboxexporter:9115
+      - source_labels: [type, env]
+        separator: ";"
+        regex: "(.*);(.*)"
+        target_label: job
+        replacement: "bata_${1}_${2}"
+
+
+alerting:
+  alertmanagers:
+    - static_configs:
+      - targets: ["alertmanager:9093"]

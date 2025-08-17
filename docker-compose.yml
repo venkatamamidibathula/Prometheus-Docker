@@ -1,0 +1,84 @@
+version: '3.8'
+services:
+  prometheus:
+    build:
+      context: prometheus
+      dockerfile: Dockerfile
+    ports:
+      - "9090"
+    depends_on:
+      - blackboxexporter
+    volumes:
+      - prometheus-data:/prometheus
+    restart: always
+
+  alertmanager:
+    build:
+      context: alertmanager
+      dockerfile: Dockerfile
+    ports:
+      - "9093"
+    depends_on:
+      - prommsteams
+    volumes:
+      - alertmanager-data:/alertmanager
+      - ./ca-bundle.crt:/etc/ssl/certs/ca-bundle.crt
+    restart: always
+
+  blackboxexporter:
+    build:
+      context: blackbox_exporter
+      dockerfile: Dockerfile
+    ports:
+      - "9115"
+    volumes:
+      - blackbox-data:/blackbox
+      - ./ca-bundle.crt:/etc/ssl/certs/ca-bundle.crt
+    restart: always
+
+  grafana:
+    build:
+      context: grafana
+      dockerfile: Dockerfile
+    ports:
+      - "3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./ca-bundle.crt:/etc/ssl/certs/ca-bundle.crt
+      - ./grafana/ldap.toml:/usr/share/grafana/conf/ldap.toml
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+    restart: always
+
+  nginx:
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    ports:
+      - "443:443"
+    depends_on:
+      - prometheus
+      - alertmanager
+      - blackboxexporter
+      - grafana
+    volumes:
+      - nginx-config:/etc/nginx/conf.d
+    restart: always
+
+  prommsteams:
+    build:
+      context: msteams
+      dockerfile: Dockerfile
+    ports:
+      - "2000"
+    volumes:
+      - prommsteams-data:/prommsteams
+      - ./ca-bundle.crt:/etc/ssl/certs/ca-bundle.crt
+    restart: always
+
+volumes:
+  prometheus-data:
+  alertmanager-data:
+  blackbox-data:
+  grafana-data:
+  nginx-config:
+  prommsteams-data:

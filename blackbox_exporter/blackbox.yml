@@ -1,0 +1,257 @@
+modules:
+  http_2xx:
+    prober: http
+    timeout: 300s
+    http:
+      preferred_ip_protocol: "ip4"
+      valid_status_codes: []
+      method: GET
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+
+  http_post_2xx_with_auth:
+    prober: http
+    http:
+      preferred_ip_protocol: "ip4"
+      method: GET
+      basic_auth:
+        username: "{{ .username }}"
+        password: "{{ .password }}"
+      fail_if_body_matches_regexp:
+        - "Invalid Credentials"
+      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+      valid_status_codes: [200]
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+  http_4xx:
+    prober: http
+    http:
+      valid_status_codes: [401]
+      valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+  http_3xx:
+    prober: http
+    http:
+      valid_status_codes: [301]
+      valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+      no_follow_redirects: true
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+  http_3xxx:
+    prober: http
+    http:
+      valid_status_codes: [308]
+      valid_http_versions: ["HTTP/1.0", "HTTP/1.1", "HTTP/2"]
+      no_follow_redirects: true
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+  http_bata-rex_stage:
+    prober: http
+    timeout: 30s
+    http:
+      basic_auth:
+        username: "user"
+        password: "bata*stageuser"
+      valid_status_codes: [200]
+      valid_http_versions: ["HTTP/1.0", "HTTP/1.1", "HTTP/2"]
+      no_follow_redirects: true
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+  http_bata-rsi_stage:
+    prober: http
+    timeout: 30s
+    http:
+      basic_auth:
+        username: "user"
+        password: "bata%stageuser"
+      valid_status_codes: [200]
+      valid_http_versions: ["HTTP/1.0", "HTTP/1.1", "HTTP/2"]
+      no_follow_redirects: true
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+  http_bata-jes_dev:
+    prober: http
+    timeout: 30s
+    http:
+      basic_auth:
+        username: "user"
+        password: "bata@devuser"
+      valid_status_codes: [200]
+      valid_http_versions: ["HTTP/1.0", "HTTP/1.1", "HTTP/2"]
+      no_follow_redirects: true
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+  http_bata-klj_qa:
+    prober: http
+    timeout: 30s
+    http:
+      basic_auth:
+        username: "user"
+        password: "bata*testuser"
+      valid_status_codes: [200]
+      valid_http_versions: ["HTTP/1.0", "HTTP/1.1", "HTTP/2"]
+      no_follow_redirects: true
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+  http_bata-jan_qa:
+    prober: http
+    timeout: 30s
+    http:
+      basic_auth:
+        username: "user"
+        password: "bata#testuser"
+      valid_status_codes: [200]
+      valid_http_versions: ["HTTP/1.0", "HTTP/1.1", "HTTP/2"]
+      no_follow_redirects: true
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+
+  http_bata-lok_prod:
+    prober: http
+    timeout: 30s
+    http:
+      basic_auth:
+        username: "user"
+        password: "bata*prod*user"
+      valid_status_codes: [200]
+      valid_http_versions: ["HTTP/1,0", "HTTP/1.1", "HTTP/2"]
+      no_follow_redirects: true
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+  http_bata-pki_prod:
+    prober: http
+    timeout: 30s
+    http:
+      basic_auth:
+        username: "user"
+        password: "bata*prod*user"
+      valid_status_codes: [200]
+      valid_http_versions: ["HTTP/1.0", "HTTP/1.1", "HTTP/2"]
+      no_follow_redirects: true
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+  http_bata_auths:
+    prober: http
+    timeout: 30s
+    http:
+      basic_auth:
+        username: "user"
+        password: "bata*produser"
+      valid_status_codes: [200]
+      valid_http_versions: ["HTTP/1.0", "HTTP/1.1", "HTTP/2"]
+      no_follow_redirects: true
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+
+  http_302:
+    prober: http
+    http:
+      valid_status_codes: [302]
+      valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+      no_follow_redirects: true
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+
+  http_404:
+    prober: http
+    http:
+      valid_status_codes: [404]
+      valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+  http_401:
+    prober: http
+    timeout: 5s
+    http:
+      valid_status_codes: [401]
+      valid_http_versions: ["HTTP/1.1"]
+      tls_config:
+        insecure_skip_verify: false
+      follow_redirects: true
+      enable_http2: false
+
+  http_403:
+    prober: http
+    http:
+      valid_status_codes: [403]
+      valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+  http_405:
+    prober: http
+    http:
+      valid_status_codes: [405]
+      valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+      tls_config:
+        insecure_skip_verify: true
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+
+  http_post_2xx:
+    prober: http
+    http:
+      method: POST
+  tcp_connect:
+    prober: tcp
+  pop3s_banner:
+    prober: tcp
+    tcp:
+      query_response:
+      - expect: "^+OK"
+      tls: true
+      tls_config:
+        insecure_skip_verify: false
+        ca_file: /etc/ssl/certs/ca-bundle.crt
+  ssh_banner:
+    prober: tcp
+    tcp:
+      query_response:
+      - expect: "^SSH-2.0-"
+  irc_banner:
+    prober: tcp
+    tcp:
+      query_response:
+      - send: "NICK prober"
+      - send: "USER prober prober prober :prober"
+      - expect: "PING :([^ ]+)"
+        send: "PONG ${1}"
+      - expect: "^:[^ ]+ 001"
+  icmp:
+    prober: icmp
+    timeout: 5s
+#    icmp:
+#      preferred_ip_protocol: "ip4"
+#      source_ip_address: "127.0.0.1"
+#      

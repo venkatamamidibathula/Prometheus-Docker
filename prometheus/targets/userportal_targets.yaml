@@ -1,0 +1,421 @@
+- targets:
+    - userportal-dev.moslof.com
+  labels:
+    env: Dev
+    type: ui
+    protocol: http_2xx
+    path: /#/login
+    scheme: https
+
+- targets:
+    - serverlikissu76.moslof.com:9006
+  labels:
+    env: Dev
+    type: api
+    protocol: http_2xx
+    path: /swagger-ui.html#/
+    scheme: https
+
+- targets:
+    - serverlikissu76.moslof.com:9010
+  labels:
+    env: Dev
+    type: admin-api
+    protocol: http_2xx
+    path: /swagger-ui.html#/
+    scheme: https
+
+- targets:
+    - serverlikissu76.moslof.com:5410
+  labels:
+    env: Dev
+    type: messaging
+    protocol: http_404
+    path: /userportalmsg/swagger.json#/Messaging32Services
+    scheme: https
+
+- targets:
+    - serverlikissu76.moslof.com:9410
+  labels:
+    env: Dev
+    type: user-author
+    protocol: http_404
+    scheme: https
+
+- targets:
+    - serverlikissu76.moslof.com:9415
+  labels:
+    env: Dev
+    type: user-authen
+    protocol: http_404
+    scheme: https
+
+- targets:
+    - userportal-tst.moslof.com
+  labels:
+    env: Qa
+    type: ui
+    protocol: http_2xx
+    path: /#/login
+    scheme: https
+
+- targets:
+    - userportal-tst.moslof.com:9443
+  labels:
+    env: Qa
+    type: admin-api
+    protocol: http_2xx
+    path: /#/admin
+    scheme: https
+
+- targets:
+    - servermhtissk87.moslof.com:9006
+  labels:
+    env: Qa
+    type: api
+    protocol: http_2xx
+    path: /swagger-ui/index.html
+    scheme: https
+
+
+- targets:
+    - servermhtissk87.moslof.com:9010
+  labels:
+    env: Qa
+    type: admin-services
+    protocol: http_2xx
+    path: /swagger-ui/index.html
+    scheme: https
+
+- targets:
+    - servermhtissk87.moslof.com:5410
+  labels:
+    env: Qa
+    type: messaging
+    protocol: http_404
+    path: /userportalmsg/swagger.json#/Messaging32Services
+    scheme: https
+
+- targets:
+    - servermhtissk87.moslof.com:9410
+  labels:
+    env: Qa
+    type: user-author
+    protocol: http_404
+    scheme: https
+
+- targets:
+    - servermhtissk87.moslof.com:9415
+  labels:
+    env: Qa
+    type: user-authen
+    protocol: http_404
+    scheme: https
+
+- targets:
+    - userportalui-stg.moslof.com
+    - userportalui-stg.moslof.com
+    - userportal-beta.moslof.com
+  labels:
+    env: Stage
+    type: ui
+    protocol: http_2xx
+    path: /#/login
+    scheme: https
+
+- targets:
+    - serverjuaissuy6.moslof.com
+    - serverjuaissk65.moslof.com
+  labels:
+    env: Stage
+    type: admin-api
+    protocol: http_2xx
+    path: /#/admin
+    scheme: https
+
+- targets:
+    - serverjuaissuy6.moslof.com:9006
+    - serverjuaissk65.moslof.com:9006
+    - serverjuaissuy6.moslof.com:9010
+    - serverjuaissk65.moslof.com:9010
+  labels:
+    env: Stage
+    type: api
+    protocol: http_2xx
+    path: /swagger-ui.html#/
+    scheme: https
+
+- targets:
+    - serverjuaissuy6.moslof.com:5410
+    - serverjuaissk65.moslof.com:5410
+  labels:
+    env: Stage
+    type: messaging
+    protocol: http_404
+    path: /userportalmsg/swagger.json#/Messaging32Services
+    scheme: https
+
+- targets:
+    - serverjuaissuy6.moslof.com:9410
+    - serverjuaissk65.moslof.com:9410
+  labels:
+    env: Stage
+    type: user-author
+    protocol: http_404
+    scheme: https
+
+- targets:
+    - serverjuaissuy6.moslof.com:9400
+    - serverjuaissk65.moslof.com:9400
+  labels:
+    env: Stage
+    type: user-authen
+    protocol: http_404
+    scheme: https
+
+- targets:
+    - userportalui.moslof.com
+    - userportal.moslof.com
+  labels:
+    env: Prod
+    type: ui
+    protocol: http_2xx
+    path: /#/login
+    scheme: https
+
+- targets:
+    - serverjuaiss0u7.moslof.com
+    - serverjuaiss0uh.moslof.com
+  labels:
+    env: Prod
+    type: admin-api
+    protocol: http_2xx
+    path: /#/admin
+    scheme: https
+
+- targets:
+    - userportalapi.moslof.com
+    - serverjuaiss0uh.moslof.com:9006
+    - serverjuaiss0u7.moslof.com:9010
+    - serverjuacgn001.moslof.com:9010
+  labels:
+    env: Prod
+    type: api
+    protocol: http_2xx
+    path: /swagger-ui.html#/
+    scheme: https
+
+- targets:
+    - serverjuacgn001.moslof.com:5410
+    - serverjuaiss0uh.moslof.com:5410
+    - serverjuaiss0u7.moslof.com:5410
+  labels:
+    env: Prod
+    type: messaging
+    protocol: http_404
+    path: /userportalmsg/swagger.json#/Messaging32Services
+    scheme: https
+
+- targets:
+    - serverjuacgn001.moslof.com:9410
+    - serverjuaiss0u7.moslof.com:9410
+  labels:
+    env: Prod
+    type: user-author
+    protocol: http_404
+    scheme: https
+
+- targets:
+    - serverjuacgn001.moslof.com:9400
+    - serverjuaiss0u7.moslof.com:9400
+  labels:
+    env: Prod
+    type: user-authen
+    protocol: http_404
+    scheme: https
+
+- targets:
+    - serverlikissu76.moslof.com:9006
+  labels:
+    env: Dev
+    type: api
+    protocol: tcp
+
+- targets:
+    - serverlikISSu76.moslof.com:9010
+  labels:
+    env: Dev
+    type: admin-api
+    protocol: tcp
+
+- targets:
+    - serverlikISSu76.moslof.com:9415
+  labels:
+    env: Dev
+    type: user-authen
+    protocol: tcp
+
+- targets:
+    - serverlikISSu76.moslof.com:9410
+  labels:
+    env: Dev
+    type: user-author
+    protocol: tcp
+
+- targets:
+    - serverlikissu76.moslof.com:5410
+  labels:
+    env: Dev
+    type: messaging
+    protocol: tcp
+
+- targets:
+    - servermhtissk87.moslof.com:9006
+  labels:
+    env: Qa
+    type: api
+    protocol: tcp
+
+- targets:
+    - servermhtissk87.moslof.com:9010
+  labels:
+    env: Qa
+    type: admin-api
+    protocol: tcp
+
+- targets:
+    - servermhtissk87.moslof.com:9415
+  labels:
+    env: Qa
+    type: user-authen
+    protocol: tcp
+
+- targets:
+    - servermhtissk87.moslof.com:9410
+  labels:
+    env: Qa
+    type: user-author
+    protocol: tcp
+
+- targets:
+    - servermhtissk87.moslof.com:5410
+  labels:
+    env: Qa
+    type: messaging
+    protocol: tcp
+
+- targets:
+    - serverjuaissuy6.moslof.com:9006
+    - serverjuaissk65.moslof.com:9006
+  labels:
+    env: Stage
+    type: api
+    protocol: tcp
+
+- targets:
+    - serverjuaissuy6.moslof.com:9010
+    - serverjuaissk65.moslof.com:9010
+  labels:
+    env: Stage
+    type: admin-api
+    protocol: tcp
+
+- targets:
+    - serverjuaissuy6.moslof.com:9400
+    - serverjuaissk65.moslof.com:9400
+  labels:
+    env: Stage
+    type: user-authen
+    protocol: tcp
+
+- targets:
+    - serverjuaissuy6.moslof.com:9410
+    - serverjuaissk65.moslof.com:9410
+  labels:
+    env: Stage
+    type: user-author
+    protocol: tcp
+
+- targets:
+    - serverjuaissuy6.moslof.com:5410
+    - serverjuaissk65.moslof.com:5410
+  labels:
+    env: Stage
+    type: messaging
+    protocol: tcp
+
+- targets:
+    - serverjuaCGN001.moslof.com:9006
+    - serverjuaiss0uh.moslof.com:9006
+  labels:
+    env: Prod
+    type: api
+    protocol: tcp
+
+- targets:
+    - serverjuaISS0u7.moslof.com:9010
+    - serverjuaCGN001.moslof.com:9010
+  labels:
+    env: Prod
+    type: admin-api
+    protocol: tcp
+
+- targets:
+    - serverjuaCGN001.moslof.com:9400
+    - serverjuaISS0u7.moslof.com:9400
+    - serverjuaHCC654.moslof.com:9400
+  labels:
+    env: Prod
+    type: user-authen
+    protocol: tcp
+
+- targets:
+    - serverjuaCGN001.moslof.com:9410
+    - serverjuaISS0u7.moslof.com:9410
+  labels:
+    env: Prod
+    type: user-author
+    protocol: tcp
+
+- targets:
+    - serverjuaISS0u7.moslof.com:5410
+    - serverjuaISS0uh.moslof.com:5410
+  labels:
+    env: Prod
+    type: messaging
+    protocol: tcp
+
+# ICMP Targets
+- targets:
+    - serverlikmn003.moslof.com
+    - serverlikISSu76.moslof.com
+  labels:
+    env: Dev
+    type: icmp
+    protocol: icmp
+
+- targets:
+    - servermhtissk87.moslof.com
+    - servermhtmn007.moslof.com
+  labels:
+    env: Qa
+    type: icmp
+    protocol: icmp
+
+- targets:
+    - serverjuaissuy6.moslof.com
+    - serverjuaissk65.moslof.com
+  labels:
+    env: Stage
+    type: icmp
+    protocol: icmp
+
+- targets:
+    - serverjuaISS0u7.moslof.com
+    - serverjuaiss0uh.moslof.com
+    - serverjuaCGN001.moslof.com
+    - serverjuaHCC654.moslof.com
+  labels:
+    env: Prod
+    type: icmp
+    protocol: icmp

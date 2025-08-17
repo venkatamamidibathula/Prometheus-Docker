@@ -1,0 +1,14 @@
+- targets:
+    - {server}.moslof.com:9182
+  labels:
+    env: Prod
+    exporter: wmi
+    application: userportal
+
+- targets:
+    - {server}.moslof.com:9100
+  labels:
+    env: Prod
+    exporter: wmi
+    application: bata
+
